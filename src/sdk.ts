@@ -5,16 +5,18 @@ import { RouteModule } from './modules/RouteModule'
 export enum NetworkType {
   Devnet = 'DEVNET',
   Testnet = 'TESTNET',
+  Mainnet = 'MAINNET',
 }
 
 const NetworkType2ConnectionConfig = {
   'DEVNET': {
     fullnode: 'https://fullnode.devnet.sui.io',
-    faucet: 'https://faucet.devnet.sui.io/gas',
   },
   'TESTNET': {
     fullnode: 'https://fullnode.testnet.sui.io',
-    faucet: 'https://faucet.testnet.sui.io/gas',
+  },
+  'MAINNET': {
+    fullnode: 'https://fullnode.mainnet.sui.io',
   },
 }
 
@@ -60,8 +62,8 @@ export class SDK {
     return this._route
   }
 
-  constructor(network?: NetworkType) {
-    const devnetOptions: SdkOptions['networkOptions'] = {
+  constructor(network?: NetworkType, endpoint?: string) {
+    const mainnetOptions: SdkOptions['networkOptions'] = {
       coins: {
         nativeCoin: '0x2::sui::SUI',
         testCoin1: '0x1495bf38cc489bb78e4fc4de6ad5d57954b66b5a260f84e9bf6bcd5d0514c8db::usdc::USDC',
@@ -95,11 +97,14 @@ export class SDK {
         budgetAddRm: 5e8,
       },
     }
-    let networkOptions = devnetOptions
-    if (network == NetworkType.Devnet || network === undefined) networkOptions = devnetOptions
+    let networkOptions = mainnetOptions
+    if (network == NetworkType.Mainnet || network === undefined) networkOptions = mainnetOptions
     if (network == NetworkType.Testnet) networkOptions = testnetOptions
     this._networkOptions = networkOptions
-    const connection = new Connection(NetworkType2ConnectionConfig[network ? network : 'DEVNET'])
+    const url = endpoint
+      ? { fullnode: endpoint }
+      : NetworkType2ConnectionConfig[network ? network : 'MAINNET']
+    const connection = new Connection(url)
     this._client = new JsonRpcProvider(connection)
     this._swap = new SwapModule(this)
     this._route = new RouteModule(this)
