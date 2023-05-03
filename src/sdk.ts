@@ -66,18 +66,18 @@ export class SDK {
     const mainnetOptions: SdkOptions['networkOptions'] = {
       coins: {
         nativeCoin: '0x2::sui::SUI',
-        testCoin1: '0x1495bf38cc489bb78e4fc4de6ad5d57954b66b5a260f84e9bf6bcd5d0514c8db::usdc::USDC',
-        testCoin2: '0x1495bf38cc489bb78e4fc4de6ad5d57954b66b5a260f84e9bf6bcd5d0514c8db::usdt::USDT',
+        testCoin1: '',
+        testCoin2: '',
       },
       modules: {
-        SwapPackage: '0x52f01dfd105356b65f50e2ec4e545a7aca7874bf5575b395f3243d6ea86ab243',
+        SwapPackage: '0x88d362329ede856f5f67867929ed570bba06c975abec2fab7f0601c56f6a8cb1',
         SwapModule: 'animeswap',
-        ObjectLiquidityPools: '0xfc1e901bb036078949dd2f66bc2c7b77613916ef1369a9accba661772e0230b2',
+        ObjectLiquidityPools: '0xdd7e3a071c6a090a157eccc3c9bbc4d2b3fb5ac9a4687b1c300bf74be6a58945',
         ClockModule: '0x0000000000000000000000000000000000000000000000000000000000000006',
       },
       consts: {
-        budgetSwap: 2e4,
-        budgetAddRm: 1e5,
+        budgetSwap: 1e8,
+        budgetAddRm: 1e8,
       },
     }
     const testnetOptions: SdkOptions['networkOptions'] = {
