@@ -1,9 +1,9 @@
-# AnimeSwap SUI v1 Protocol SDK
+# AnimeSwap Sui v1 Protocol SDK
 
-The typescript SDK for [AnimeSwap](https://animeswap.org) SUI v1 protocol.
+The typescript SDK for [AnimeSwap](https://animeswap.org) Sui v1 protocol.
 
 * [SDK documents](https://docs.animeswap.org/docs/sdk)
-* [Contracts documents](https://docs.animeswap.org/docs/contracts)
+* [Contracts documents](https://docs.animeswap.org/docs/contracts/Sui/contracts)
 
 # Installation
 
