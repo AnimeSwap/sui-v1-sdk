@@ -1,6 +1,6 @@
 {
   "name": "@animeswap.org/sui-v1-sdk",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "SDK for use any functions of AnimeSwap v1 Protocol",
   "repository": "https://github.com/AnimeSwap/sui-v1-sdk",
   "license": "GPL-3.0-or-later",
@@ -40,7 +40,7 @@
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "@mysten/sui.js": "^0.32.2",
+    "@mysten/sui.js": "^0.33.0",
     "decimal.js": "^10.4.3"
   }
 }
